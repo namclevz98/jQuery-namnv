@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="dashboard.css" rel="stylesheet">
+    <link rel="icon" href="https://getbootstrap.com/docs/4.0/assets/img/favicons/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        .form-control {
+            height: 1.8rem;
+        }
+
+        button>span,p {
+            color: white;
+            font-size: small;
+        }
+        .col-1 {
+            max-width: 8%;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+        <img class="bg-light" src="logo.png" height="50px" width="70px">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#" style="height:50px">jQuery Totorial</a>
+        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="#">Sign out</a>
+            </li>
+        </ul>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2 d-none d-md-block bg-light sidebar">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <span data-feather="home"></span>
+                            Dashboard <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="file"></span>
+                            Orders
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="shopping-cart"></span>
+                            Products
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="users"></span>
+                            Customers
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="bar-chart-2"></span>
+                            Reports
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="layers"></span>
+                            Integrations
+                        </a>
+                    </li>
+                </ul>
+
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Saved reports</span>
+                    <a class="d-flex align-items-center text-muted" href="#">
+                        <span data-feather="plus-circle"></span>
+                    </a>
+                </h6>
+                <ul class="nav flex-column mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            Current month
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            Last quarter
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            Social engagement
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            Year-end sale
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-10">
+                <div class="card bg-white">
+                    <div class="card-header">
+                        <span>Search</span>
+                    </div>
+                    <div class="card-body">
+                        <form class="form">
+                            <div class="row">
+                                <div class="col-1">
+                                    <label>ID</label>
+                                </div>
+                                <div class="col-5">
+                                    <input class="form-control" type="text" id="idSearch">
+                                </div>
+                                <div class="col-1">
+                                    <label>Name</label>
+                                </div>
+                                <div class="col-5">
+                                    <input class="form-control" type="text" id="nameSearch">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <br />
+                <div class="card bg-white">
+                    <div class="card-header">
+                        <span>Details</span>
+                    </div>
+                    <div class="card-body">
+                        <form class="form">
+                            <div class="row">
+                                <div class="col-1">
+                                    <label>Name</label>
+                                </div>
+                                <div class="col-5">
+                                    <input class="form-control" type="text" id="nameDetail">
+                                </div>
+                                <div class="col-1">
+                                    <label>Position</label>
+                                </div>
+                                <div class="col-5">
+                                    <input class="form-control" type="text" id="positionDetail">
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:1rem">
+                                <div class="col-1">
+                                    <label>Salary</label>
+                                </div>
+                                <div class="col-5">
+                                    <input class="form-control" type="text" id="salaryDetail">
+                                </div>
+                                <div class="col-1">
+                                    <label>Date</label>
+                                </div>
+                                <div class="col-5">
+                                    <input class="form-control" type="text" id="start_dateDetail">
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:1rem">
+                                <div class="col-1">
+                                    <label>Office</label>
+                                </div>
+                                <div class="col-5">
+                                    <input class="form-control" type="text" id="officeDetail">
+                                </div>
+                                <div class="col-1">
+                                    <label>Extn</label>
+                                </div>
+                                <div class="col-5">
+                                    <input class="form-control" type="text" id="extnDetail">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="card bg-white">
+                    <div class="card-header">
+                        <span>Table</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table" id="dataTable">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            id
+                                        </th>
+                                        <th>
+                                            name
+                                        </th>
+                                        <th>
+                                            position
+                                        </th>
+                                        <th>
+                                            salary
+                                        </th>
+                                        <th>
+                                            started_date
+                                        </th>
+                                        <th>
+                                            office
+                                        </th>
+                                        <th>
+                                            extn
+                                        </th>
+                                        <th>
+                                            Delete
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card bg-dark" style="position: fixed;bottom: 0;width: 100%;">
+                    <div class="card-body row">
+                        <div class="col-2">
+
+                        </div>
+                        <div class="col-10">
+                            <button class="btn btn-outline-secondary col-1">
+                                <span class="text-align-top">F1</span>
+                            </button>
+                            <button class="btn btn-outline-secondary col-1">
+                                <span class="text-align-top">F2</span>
+                            </button>
+                            <button class="btn btn-outline-secondary col-1" id="btnSearch">
+                                <span>F3</span>
+                                <p>Search</p>
+                            </button>
+                            <button class="btn btn-outline-secondary col-1"><span class="text-align-top">F4</span></button>
+                            <button class="btn btn-outline-secondary col-1" id="btnClear">
+                                <span>F5</span>
+                                <p>Clear</p>
+                            </button>
+                            <button class="btn btn-outline-secondary col-1">
+                                <span class="text-align-top">F6</span>
+                            </button>
+                            <button class="btn btn-outline-secondary col-1">
+                                <span class="text-align-top">F7</span>
+                            </button>
+                            <button class="btn btn-outline-secondary col-1">
+                                <span class="text-align-top">F8</span>
+                            </button>
+                            <button class="btn btn-outline-secondary col-1">
+                                <span class="text-align-top">F9</span>
+                            </button>
+                            <button class="btn btn-outline-secondary col-1" id="btnSave">
+                                <span>F10</span>
+                                <p>Save</p>
+                            </button>
+                            <button class="btn btn-outline-secondary col-1">
+                                <span class="text-align-top">F11</span>
+                            </button>
+                            <button class="btn btn-outline-secondary col-1">
+                                <span class="text-align-top">F12</span>
+                            </button>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+    <script src="/blog.js"></script>
+    <script src="/script.js"></script>
+</body>
