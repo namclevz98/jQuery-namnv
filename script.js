@@ -3,10 +3,10 @@ $(document).ready(function (data) {
     let positionsData = '';
     let officesData = '';
     $.each(dataJson.positions, function (sm, data) {
-        positionsData += '<option data-v="' + data.id + '" value="' + data.id + '">' + data.name + '</option>';
+        getPositionsData(sm,data);
     });
     $.each(dataJson.offices, function (sm, data) {
-        officesData += '<option data-v="' + data.id + '" value ="' + data.id + '">' + data.name + '</option>';
+        getOfficesData(sm,data);
     });
     $.each(dataJson.users, function (key, value) {
         createRow(key, value);
@@ -54,7 +54,28 @@ $(document).ready(function (data) {
     $('#btnSave').on('click', function () {
         save();
     });
+    function getPositionsData(sm, data) {
+        positionsData += '<option data-v="' + data.id + '" value="' + data.id + '">' + data.name + '</option>';
+    }
+    function getOfficesData(sm,data) {
+        officesData += '<option data-v="' + data.id + '" value ="' + data.id + '">' + data.name + '</option>';
+    }
+    function getDetail() {
+        var id = $(this).find('td:eq(0)').text();
+        var name = $(this).find('td:eq(1)').text();
+        var position = $(this).find('td:eq(2)').find('option:selected').text();
+        var salary = $(this).find('td:eq(3)').find('input').val();
+        var start_date = $(this).find('td:eq(4)').find('input').val();
+        var office = $(this).find('td:eq(5)').find('option:selected').text();
+        var extn = $(this).find('td:eq(6)').text();
 
+        $('#nameDetail').val(name);
+        $('#positionDetail').val(position);
+        $('#salaryDetail').val(salary);
+        $('#start_dateDetail').val(start_date);
+        $('#officeDetail').val(office);
+        $('#extnDetail').val(extn);
+    }
 })
 function createRow(key, value) {
     dataJson += '<tr>';
@@ -68,7 +89,6 @@ function createRow(key, value) {
     dataJson += '<td> <button type="button" class="btn btn-danger">Delete</button></td>';
     dataJson += '</tr>';
 }
-
 
 function reset() {
     $('#idSearch').val('');
